@@ -1,0 +1,98 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD C:\cygwin64\tmp\ccKSIaZ1.o
+LOAD C:\cygwin64\tmp\ccerTEnz.o
+LOAD C:\cygwin64\tmp\ccSWlu1d.o
+LOAD C:\cygwin64\tmp\cccctqnV.o
+LOAD C:\cygwin64\tmp\ccKmwNaI.o
+                0x0000000000000000                . = 0x0
+
+.data           0x0000000000000000     0x35f4
+ *(.data1)
+ .data1         0x0000000000000000       0xc8 C:\cygwin64\tmp\ccKSIaZ1.o
+                0x0000000000000000                wt_conv1
+ *(.data2)
+ .data2         0x00000000000000c8      0xc80 C:\cygwin64\tmp\ccKSIaZ1.o
+                0x00000000000000c8                wt_conv2
+ *(.data3)
+ .data3         0x0000000000000d48      0xa00 C:\cygwin64\tmp\ccKSIaZ1.o
+                0x0000000000000d48                wt_fc
+ *(.data4)
+ .data4         0x0000000000001748        0xa C:\cygwin64\tmp\ccKSIaZ1.o
+                0x0000000000001748                labels
+ *(.data5)
+ *fill*         0x0000000000001752        0x2 
+ .data5         0x0000000000001754     0x1ea0 C:\cygwin64\tmp\ccKSIaZ1.o
+                0x0000000000001754                images
+ .data          0x00000000000035f4        0x0 C:\cygwin64\tmp\ccKSIaZ1.o
+ .data          0x00000000000035f4        0x0 C:\cygwin64\tmp\ccerTEnz.o
+ .data          0x00000000000035f4        0x0 C:\cygwin64\tmp\ccSWlu1d.o
+ .data          0x00000000000035f4        0x0 C:\cygwin64\tmp\cccctqnV.o
+ .data          0x00000000000035f4        0x0 C:\cygwin64\tmp\ccKmwNaI.o
+
+.text           0x00000000000035f4      0x4f8
+ *(.start)
+ .start         0x00000000000035f4        0xc C:\cygwin64\tmp\ccerTEnz.o
+                0x00000000000035f4                _start
+ *(.text)
+ .text          0x0000000000003600        0x0 C:\cygwin64\tmp\ccKSIaZ1.o
+ .text          0x0000000000003600        0x0 C:\cygwin64\tmp\ccerTEnz.o
+ .text          0x0000000000003600      0x3d8 C:\cygwin64\tmp\ccSWlu1d.o
+                0x0000000000003600                ascii_dec_to_uint8
+                0x0000000000003648                ascii_dec_to_uint16
+                0x0000000000003694                ascii_dec_to_uint32
+                0x00000000000036d8                ascii_hex_to_uint8
+                0x000000000000375c                ascii_hex_to_uint16
+                0x00000000000037ec                ascii_hex_to_uint32
+                0x000000000000386c                uint8_to_ascii_hex
+                0x00000000000038e8                uint16_to_ascii_hex
+                0x000000000000395c                uint32_to_ascii_hex
+ .text          0x00000000000039d8       0x64 C:\cygwin64\tmp\cccctqnV.o
+                0x00000000000039d8                strcmp
+                0x0000000000003a14                strlen
+ .text          0x0000000000003a3c       0xb0 C:\cygwin64\tmp\ccKmwNaI.o
+                0x0000000000003a3c                uwrite_int8
+                0x0000000000003a54                uwrite_int8s
+                0x0000000000003a84                uread_int8
+OUTPUT(lenet_weight.elf elf32-littleriscv)
+
+.text.startup   0x0000000000003aec        0x8
+ .text.startup  0x0000000000003aec        0x8 C:\cygwin64\tmp\ccKSIaZ1.o
+                0x0000000000003aec                main
+
+.rodata.str1.4  0x0000000000003af4        0x3
+ .rodata.str1.4
+                0x0000000000003af4        0x3 C:\cygwin64\tmp\ccKmwNaI.o
+
+.bss            0x0000000000003af7        0x0
+ .bss           0x0000000000003af7        0x0 C:\cygwin64\tmp\ccKSIaZ1.o
+ .bss           0x0000000000003af7        0x0 C:\cygwin64\tmp\ccerTEnz.o
+ .bss           0x0000000000003af7        0x0 C:\cygwin64\tmp\ccSWlu1d.o
+ .bss           0x0000000000003af7        0x0 C:\cygwin64\tmp\cccctqnV.o
+ .bss           0x0000000000003af7        0x0 C:\cygwin64\tmp\ccKmwNaI.o
+
+.comment        0x0000000000000000       0x30
+ .comment       0x0000000000000000       0x30 C:\cygwin64\tmp\ccKSIaZ1.o
+                                         0x31 (size before relaxing)
+ .comment       0x0000000000000030       0x31 C:\cygwin64\tmp\ccSWlu1d.o
+ .comment       0x0000000000000030       0x31 C:\cygwin64\tmp\cccctqnV.o
+ .comment       0x0000000000000030       0x31 C:\cygwin64\tmp\ccKmwNaI.o
+
+.riscv.attributes
+                0x0000000000000000       0x1c
+ .riscv.attributes
+                0x0000000000000000       0x1c C:\cygwin64\tmp\ccKSIaZ1.o
+ .riscv.attributes
+                0x000000000000001c       0x1a C:\cygwin64\tmp\ccerTEnz.o
+ .riscv.attributes
+                0x0000000000000036       0x1c C:\cygwin64\tmp\ccSWlu1d.o
+ .riscv.attributes
+                0x0000000000000052       0x1c C:\cygwin64\tmp\cccctqnV.o
+ .riscv.attributes
+                0x000000000000006e       0x1c C:\cygwin64\tmp\ccKmwNaI.o

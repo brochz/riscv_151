@@ -1,0 +1,40 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD C:\cygwin64\tmp\ccIvMKGd.o
+LOAD C:\cygwin64\tmp\ccRfjnuE.o
+                0x0000000010000000                . = 0x10000000
+
+.text           0x0000000010000000       0x60
+ *(.start)
+ .start         0x0000000010000000        0x8 C:\cygwin64\tmp\ccRfjnuE.o
+                0x0000000010000000                _start
+ *(.text)
+ .text          0x0000000010000008       0x58 C:\cygwin64\tmp\ccIvMKGd.o
+                0x0000000010000008                main
+ .text          0x0000000010000060        0x0 C:\cygwin64\tmp\ccRfjnuE.o
+OUTPUT(echo.elf elf32-littleriscv)
+
+.data           0x0000000010000060        0x0
+ .data          0x0000000010000060        0x0 C:\cygwin64\tmp\ccIvMKGd.o
+ .data          0x0000000010000060        0x0 C:\cygwin64\tmp\ccRfjnuE.o
+
+.bss            0x0000000010000060        0x0
+ .bss           0x0000000010000060        0x0 C:\cygwin64\tmp\ccIvMKGd.o
+ .bss           0x0000000010000060        0x0 C:\cygwin64\tmp\ccRfjnuE.o
+
+.comment        0x0000000000000000       0x30
+ .comment       0x0000000000000000       0x30 C:\cygwin64\tmp\ccIvMKGd.o
+                                         0x31 (size before relaxing)
+
+.riscv.attributes
+                0x0000000000000000       0x1c
+ .riscv.attributes
+                0x0000000000000000       0x1c C:\cygwin64\tmp\ccIvMKGd.o
+ .riscv.attributes
+                0x000000000000001c       0x1a C:\cygwin64\tmp\ccRfjnuE.o

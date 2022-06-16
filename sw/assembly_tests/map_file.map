@@ -1,0 +1,29 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD C:\cygwin64\tmp\cceS48Fc.o
+                0x0000000040000000                . = 0x40000000
+
+.text           0x0000000040000000       0x74
+ *(.start)
+ .start         0x0000000040000000       0x74 C:\cygwin64\tmp\cceS48Fc.o
+                0x0000000040000000                _start
+ *(.text)
+ .text          0x0000000040000074        0x0 C:\cygwin64\tmp\cceS48Fc.o
+OUTPUT(assembly_tests.elf elf32-littleriscv)
+
+.data           0x0000000040000074        0x0
+ .data          0x0000000040000074        0x0 C:\cygwin64\tmp\cceS48Fc.o
+
+.bss            0x0000000040000074        0x0
+ .bss           0x0000000040000074        0x0 C:\cygwin64\tmp\cceS48Fc.o
+
+.riscv.attributes
+                0x0000000000000000       0x1a
+ .riscv.attributes
+                0x0000000000000000       0x1a C:\cygwin64\tmp\cceS48Fc.o

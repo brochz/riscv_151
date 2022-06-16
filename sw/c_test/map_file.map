@@ -1,0 +1,53 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD C:\cygwin64\tmp\ccj7hlwm.o
+LOAD C:\cygwin64\tmp\c_test.elf.qOoYxM.ltrans0.ltrans.o
+LOAD C:\cygwin64\tmp\ccCo5ouq.o
+LOAD C:\cygwin64\tmp\ccbE5xyK.o
+LOAD C:\cygwin64\tmp\ccYSnGS5.o
+LOAD C:\cygwin64\tmp\cc13LS5v.o
+                0x0000000010000000                . = 0x10000000
+
+.text           0x0000000010000000       0x70
+ *(.start)
+ .start         0x0000000010000000        0xc C:\cygwin64\tmp\ccCo5ouq.o
+                0x0000000010000000                _start
+ *(.text)
+ .text          0x000000001000000c       0x64 C:\cygwin64\tmp\c_test.elf.qOoYxM.ltrans0.ltrans.o
+                0x000000001000000c                strcmp
+                0x0000000010000048                strlen
+ .text          0x0000000010000070        0x0 C:\cygwin64\tmp\ccCo5ouq.o
+OUTPUT(c_test.elf elf32-littleriscv)
+
+.text.startup   0x0000000010000070      0x114
+ .text.startup  0x0000000010000070      0x114 C:\cygwin64\tmp\c_test.elf.qOoYxM.ltrans0.ltrans.o
+                0x0000000010000070                main
+
+.rodata.str1.4  0x0000000010000184       0x14
+ .rodata.str1.4
+                0x0000000010000184       0x14 C:\cygwin64\tmp\c_test.elf.qOoYxM.ltrans0.ltrans.o
+
+.data           0x0000000010000198        0x0
+ .data          0x0000000010000198        0x0 C:\cygwin64\tmp\c_test.elf.qOoYxM.ltrans0.ltrans.o
+ .data          0x0000000010000198        0x0 C:\cygwin64\tmp\ccCo5ouq.o
+
+.bss            0x0000000010000198        0x0
+ .bss           0x0000000010000198        0x0 C:\cygwin64\tmp\c_test.elf.qOoYxM.ltrans0.ltrans.o
+ .bss           0x0000000010000198        0x0 C:\cygwin64\tmp\ccCo5ouq.o
+
+.comment        0x0000000000000000       0x30
+ .comment       0x0000000000000000       0x30 C:\cygwin64\tmp\c_test.elf.qOoYxM.ltrans0.ltrans.o
+                                         0x31 (size before relaxing)
+
+.riscv.attributes
+                0x0000000000000000       0x20
+ .riscv.attributes
+                0x0000000000000000       0x20 C:\cygwin64\tmp\c_test.elf.qOoYxM.ltrans0.ltrans.o
+ .riscv.attributes
+                0x0000000000000020       0x1a C:\cygwin64\tmp\ccCo5ouq.o

@@ -1,0 +1,108 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD C:\cygwin64\tmp\ccJgirWk.o
+LOAD C:\cygwin64\tmp\ccNG0KzH.o
+LOAD C:\cygwin64\tmp\ccTx84N6.o
+LOAD C:\cygwin64\tmp\ccTzfT5C.o
+LOAD C:\cygwin64\tmp\ccReZova.o
+LOAD C:\cygwin64\tmp\ccrn00UJ.o
+                0x0000000010000000                . = 0x10000000
+
+.text           0x0000000010000000      0xe40
+ *(.start)
+ .start         0x0000000010000000        0xc C:\cygwin64\tmp\ccTx84N6.o
+                0x0000000010000000                _start
+ *(.text)
+ .text          0x000000001000000c      0x6c8 C:\cygwin64\tmp\ccJgirWk.o
+                0x000000001000000c                times
+                0x000000001000006c                cast_si32
+                0x0000000010000084                conv3D_sw_1
+                0x000000001000022c                conv3D_sw_2
+                0x000000001000041c                max4
+                0x000000001000043c                pooling_sw_1
+                0x00000000100004d4                pooling_sw_2
+                0x000000001000055c                fc_sw
+                0x0000000010000698                clamp
+ .text          0x00000000100006d4      0x280 C:\cygwin64\tmp\ccNG0KzH.o
+                0x00000000100006d4                findmax
+                0x0000000010000710                dma_read_ddr
+                0x0000000010000740                dma_write_ddr
+                0x0000000010000770                conv3D_hw
+                0x00000000100007ac                lenet
+                0x00000000100008b0                checksum_i32
+                0x00000000100008e0                checksum_i8
+ .text          0x0000000010000954        0x0 C:\cygwin64\tmp\ccTx84N6.o
+ .text          0x0000000010000954      0x3d8 C:\cygwin64\tmp\ccTzfT5C.o
+                0x0000000010000954                ascii_dec_to_uint8
+                0x000000001000099c                ascii_dec_to_uint16
+                0x00000000100009e8                ascii_dec_to_uint32
+                0x0000000010000a2c                ascii_hex_to_uint8
+                0x0000000010000ab0                ascii_hex_to_uint16
+                0x0000000010000b40                ascii_hex_to_uint32
+                0x0000000010000bc0                uint8_to_ascii_hex
+                0x0000000010000c3c                uint16_to_ascii_hex
+                0x0000000010000cb0                uint32_to_ascii_hex
+ .text          0x0000000010000d2c       0x64 C:\cygwin64\tmp\ccReZova.o
+                0x0000000010000d2c                strcmp
+                0x0000000010000d68                strlen
+ .text          0x0000000010000d90       0xb0 C:\cygwin64\tmp\ccrn00UJ.o
+                0x0000000010000d90                uwrite_int8
+                0x0000000010000da8                uwrite_int8s
+                0x0000000010000dd8                uread_int8
+OUTPUT(lenet_test.elf elf32-littleriscv)
+
+.text.startup   0x0000000010000e40      0x3d4
+ .text.startup  0x0000000010000e40      0x3d4 C:\cygwin64\tmp\ccNG0KzH.o
+                0x0000000010000e40                main
+
+.rodata.str1.4  0x0000000010001214        0x3
+ .rodata.str1.4
+                0x0000000010001214        0x3 C:\cygwin64\tmp\ccrn00UJ.o
+
+.data           0x0000000010001217        0x0
+ .data          0x0000000010001217        0x0 C:\cygwin64\tmp\ccJgirWk.o
+ .data          0x0000000010001217        0x0 C:\cygwin64\tmp\ccNG0KzH.o
+ .data          0x0000000010001217        0x0 C:\cygwin64\tmp\ccTx84N6.o
+ .data          0x0000000010001217        0x0 C:\cygwin64\tmp\ccTzfT5C.o
+ .data          0x0000000010001217        0x0 C:\cygwin64\tmp\ccReZova.o
+ .data          0x0000000010001217        0x0 C:\cygwin64\tmp\ccrn00UJ.o
+
+.bss            0x0000000010001218     0x1748
+ .bss           0x0000000010001218        0x0 C:\cygwin64\tmp\ccJgirWk.o
+ .bss           0x0000000010001218     0x1748 C:\cygwin64\tmp\ccNG0KzH.o
+ .bss           0x0000000010002960        0x0 C:\cygwin64\tmp\ccTx84N6.o
+ .bss           0x0000000010002960        0x0 C:\cygwin64\tmp\ccTzfT5C.o
+ .bss           0x0000000010002960        0x0 C:\cygwin64\tmp\ccReZova.o
+ .bss           0x0000000010002960        0x0 C:\cygwin64\tmp\ccrn00UJ.o
+
+.sbss           0x0000000010002960        0x1
+ .sbss          0x0000000010002960        0x1 C:\cygwin64\tmp\ccNG0KzH.o
+
+.comment        0x0000000000000000       0x30
+ .comment       0x0000000000000000       0x30 C:\cygwin64\tmp\ccJgirWk.o
+                                         0x31 (size before relaxing)
+ .comment       0x0000000000000030       0x31 C:\cygwin64\tmp\ccNG0KzH.o
+ .comment       0x0000000000000030       0x31 C:\cygwin64\tmp\ccTzfT5C.o
+ .comment       0x0000000000000030       0x31 C:\cygwin64\tmp\ccReZova.o
+ .comment       0x0000000000000030       0x31 C:\cygwin64\tmp\ccrn00UJ.o
+
+.riscv.attributes
+                0x0000000000000000       0x20
+ .riscv.attributes
+                0x0000000000000000       0x1c C:\cygwin64\tmp\ccJgirWk.o
+ .riscv.attributes
+                0x000000000000001c       0x20 C:\cygwin64\tmp\ccNG0KzH.o
+ .riscv.attributes
+                0x000000000000003c       0x1a C:\cygwin64\tmp\ccTx84N6.o
+ .riscv.attributes
+                0x0000000000000056       0x1c C:\cygwin64\tmp\ccTzfT5C.o
+ .riscv.attributes
+                0x0000000000000072       0x1c C:\cygwin64\tmp\ccReZova.o
+ .riscv.attributes
+                0x000000000000008e       0x1c C:\cygwin64\tmp\ccrn00UJ.o
