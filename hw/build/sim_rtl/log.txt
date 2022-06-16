@@ -1,0 +1,323 @@
+iverilog -Wimplicit -Winfloop -Wfloating-nets -oRiscv151_testbench.out  -I ../../rtl  -I ../../rtl/accelerator  -I ../../rtl/io_circuits  -I ../../rtl/riscv_core  -I ../../tb -sRiscv151_testbench  ../../rtl/EECS151.v  ../../rtl/accelerator/arbiter.v ../../rtl/accelerator/axi_mm_adapter.v ../../rtl/accelerator/axi_mm_read.v ../../rtl/accelerator/axi_mm_write.v ../../rtl/accelerator/dma_controller.v ../../rtl/accelerator/xcel_naive.v ../../rtl/accelerator/xcel_naive_compute.v ../../rtl/accelerator/xcel_naive_memif.v ../../rtl/accelerator/xcel_opt.v  ../../rtl/io_circuits/button_parser.v ../../rtl/io_circuits/debouncer.v ../../rtl/io_circuits/edge_detector.v ../../rtl/io_circuits/fifo.v ../../rtl/io_circuits/synchronizer.v ../../rtl/io_circuits/uart_receiver.v ../../rtl/io_circuits/uart_transmitter.v  ../../rtl/riscv_core/Riscv151.v ../../rtl/riscv_core/alu.v ../../tb/Riscv151_testbench.v
+cp ../../../sw/bios151v3/bios151v3.mif ./
+if [ "" != "" ] ; then \
+	cp ../../../sw//*.mif ./ ; \
+fi
+if [ "Riscv151_testbench" = "isa_testbench" -a "" = "all" ] ; then \
+	for inst in addi add andi and auipc beq bge bgeu blt bltu bne jal jalr lb lbu lh lhu lui lw ori or sb sh simple slli sll slti sltiu slt sltu srai sra srli srl sub sw xori xor  ; do \
+		vvp ./Riscv151_testbench.out +MIF_FILE=$inst.mif | tee -a output.log ; \
+	done ; \
+	sed -n '/\[[a-zA-Z]*\]/p' output.log ; \
+else \
+	vvp ./Riscv151_testbench.out +MIF_FILE=.mif ; \
+fi
+WARNING: ../../rtl/EECS151.v:252: $readmemh(bios151v3.mif): Not enough words in the file for the requested range [0:4095].
+VCD info: dumpfile Riscv151_testbench.vcd opened for output.
+PC_IF = 10000000, instruction_IF = X00X0XXX, Time =                   30
+PC_IF = 10000000, instruction_IF = 00000000, Time =                   30
+PC_IF = 10000000, instruction_IF = 002081b3, Time =                  250
+PC_IF = 10000004, instruction_IF = 40208233, Time =                  270
+PC_IF = 10000008, instruction_IF = 002092b3, Time =                  290
+[         1] Test                       R-Type ADD passed!                  310
+PC_IF = 1000000c, instruction_IF = 0020a333, Time =                  310
+[         2] Test                       R-Type SUB passed!                  330
+PC_IF = 10000010, instruction_IF = 0020b3b3, Time =                  330
+[         3] Test                       R-Type SLL passed!                  350
+PC_IF = 10000014, instruction_IF = 0020c433, Time =                  350
+[         4] Test                       R-Type SLT passed!                  370
+[         5] Test                      R-Type SLTU passed!                  370
+PC_IF = 10000018, instruction_IF = 0020e4b3, Time =                  370
+PC_IF = 1000001c, instruction_IF = 0020f533, Time =                  390
+[         6] Test                       R-Type XOR passed!                  410
+PC_IF = 10000020, instruction_IF = 0020d5b3, Time =                  410
+[         7] Test                        R-Type OR passed!                  430
+PC_IF = 10000024, instruction_IF = 4020d633, Time =                  430
+[         8] Test                       R-Type AND passed!                  450
+PC_IF = 10000028, instruction_IF = 01409693, Time =                  450
+[         9] Test                       R-Type SRL passed!                  470
+PC_IF = 1000002c, instruction_IF = 0140d713, Time =                  470
+[        10] Test                       R-Type SRA passed!                  490
+PC_IF = 10000030, instruction_IF = 4140d793, Time =                  490
+[        11] Test                      R-Type SLLI passed!                  510
+PC_IF = 10000034, instruction_IF = 00000000, Time =                  510
+[        12] Test                      R-Type SRLI passed!                  530
+[        13] Test                      R-Type SRAI passed!                  550
+PC_IF = 10000000, instruction_IF = f3808193, Time =                  590
+PC_IF = 10000004, instruction_IF = f380a213, Time =                  610
+PC_IF = 10000008, instruction_IF = f380b293, Time =                  630
+[        14] Test                       I-Type ADD passed!                  650
+[        15] Test                       I-Type SLT passed!                  650
+[        16] Test                      I-Type SLTU passed!                  650
+PC_IF = 1000000c, instruction_IF = f380c313, Time =                  650
+PC_IF = 10000010, instruction_IF = f380e393, Time =                  670
+PC_IF = 10000014, instruction_IF = f380f413, Time =                  690
+[        17] Test                       I-Type XOR passed!                  710
+PC_IF = 10000018, instruction_IF = 0020e4b3, Time =                  710
+[        18] Test                        I-Type OR passed!                  730
+PC_IF = 1000001c, instruction_IF = 0020f533, Time =                  730
+[        19] Test                       I-Type AND passed!                  750
+PC_IF = 10000020, instruction_IF = 0020d5b3, Time =                  750
+PC_IF = 10000024, instruction_IF = 4020d633, Time =                  770
+PC_IF = 10000000, instruction_IF = 0000a103, Time =                  790
+PC_IF = 10000004, instruction_IF = 00009183, Time =                  810
+PC_IF = 10000008, instruction_IF = f380b293, Time =                  830
+[        20] Test                        I-Type LW passed!                  850
+PC_IF = 1000000c, instruction_IF = 00109203, Time =                  850
+[        21] Test                      I-Type LH 0 passed!                  870
+PC_IF = 10000010, instruction_IF = 00209283, Time =                  870
+PC_IF = 10000014, instruction_IF = 00309303, Time =                  890
+[        22] Test                      I-Type LH 1 passed!                  910
+PC_IF = 10000018, instruction_IF = 00008383, Time =                  910
+[        23] Test                      I-Type LH 2 passed!                  930
+PC_IF = 1000001c, instruction_IF = 00108403, Time =                  930
+[        24] Test                      I-Type LH 3 passed!                  950
+PC_IF = 10000020, instruction_IF = 00208483, Time =                  950
+[        25] Test                      I-Type LB 0 passed!                  970
+PC_IF = 10000024, instruction_IF = 00308503, Time =                  970
+[        26] Test                      I-Type LB 1 passed!                  990
+PC_IF = 10000028, instruction_IF = 0000d583, Time =                  990
+[        27] Test                      I-Type LB 2 passed!                 1010
+PC_IF = 1000002c, instruction_IF = 0010d603, Time =                 1010
+[        28] Test                      I-Type LB 3 passed!                 1030
+PC_IF = 10000030, instruction_IF = 0020d683, Time =                 1030
+[        29] Test                     I-Type LHU 0 passed!                 1050
+PC_IF = 10000034, instruction_IF = 0030d703, Time =                 1050
+[        30] Test                     I-Type LHU 1 passed!                 1070
+PC_IF = 10000038, instruction_IF = 0000c783, Time =                 1070
+[        31] Test                     I-Type LHU 2 passed!                 1090
+PC_IF = 1000003c, instruction_IF = 0010c803, Time =                 1090
+[        32] Test                     I-Type LHU 3 passed!                 1110
+PC_IF = 10000040, instruction_IF = 0020c883, Time =                 1110
+[        33] Test                     I-Type LBU 0 passed!                 1130
+PC_IF = 10000044, instruction_IF = 0030c903, Time =                 1130
+[        34] Test                     I-Type LBU 1 passed!                 1150
+PC_IF = 10000048, instruction_IF = 00000000, Time =                 1150
+[        35] Test                     I-Type LBU 2 passed!                 1170
+[        36] Test                     I-Type LBU 3 passed!                 1190
+PC_IF = 10000000, instruction_IF = 10112023, Time =                 1230
+PC_IF = 10000004, instruction_IF = 10119023, Time =                 1250
+[        37] Test                        S-Type SW passed!
+PC_IF = 10000008, instruction_IF = 101210a3, Time =                 1270
+[        38] Test                      S-Type SH 1 passed!
+PC_IF = 1000000c, instruction_IF = 10129123, Time =                 1290
+[        39] Test                      S-Type SH 2 passed!
+PC_IF = 10000010, instruction_IF = 101311a3, Time =                 1310
+[        40] Test                      S-Type SH 3 passed!
+PC_IF = 10000014, instruction_IF = 10138023, Time =                 1330
+[        41] Test                      S-Type SH 4 passed!
+PC_IF = 10000018, instruction_IF = 101400a3, Time =                 1350
+[        42] Test                      S-Type SB 1 passed!
+PC_IF = 1000001c, instruction_IF = 10148123, Time =                 1370
+[        43] Test                      S-Type SB 2 passed!
+PC_IF = 10000020, instruction_IF = 101501a3, Time =                 1390
+[        44] Test                      S-Type SB 3 passed!
+PC_IF = 10000024, instruction_IF = 00308503, Time =                 1410
+[        45] Test                      S-Type SB 4 passed!
+PC_IF = 10000028, instruction_IF = 0000d583, Time =                 1430
+PC_IF = 1000002c, instruction_IF = 0010d603, Time =                 1450
+PC_IF = 10000000, instruction_IF = 7fff01b7, Time =                 1470
+PC_IF = 10000004, instruction_IF = 7fff0217, Time =                 1490
+PC_IF = 10000008, instruction_IF = 101210a3, Time =                 1510
+[        46] Test                       U-Type LUI passed!                 1530
+PC_IF = 1000000c, instruction_IF = 10129123, Time =                 1530
+[        47] Test                     U-Type AUIPC passed!                 1550
+PC_IF = 10000010, instruction_IF = 101311a3, Time =                 1550
+PC_IF = 10000014, instruction_IF = 10138023, Time =                 1570
+PC_IF = 10000000, instruction_IF = 7f1002ef, Time =                 1590
+PC_IF = 10000004, instruction_IF = 00000000, Time =                 1610
+PC_IF = 10000ff0, instruction_IF = 004183b3, Time =                 1630
+[        48] Test                       J-Type JAL passed!                 1650
+PC_IF = 10000ff4, instruction_IF = 00000000, Time =                 1650
+[        49] Test                       J-Type JAL passed!                 1690
+[        50] Test                       J-Type JAL passed!                 1690
+PC_IF = 10000000, instruction_IF = ff0082e7, Time =                 1730
+PC_IF = 10000004, instruction_IF = 00000000, Time =                 1750
+PC_IF = 100000f0, instruction_IF = 004183b3, Time =                 1770
+[        51] Test                      J-Type JALR passed!                 1790
+PC_IF = 100000f4, instruction_IF = 00000000, Time =                 1790
+[        52] Test                      J-Type JALR passed!                 1830
+[        53] Test                      J-Type JALR passed!                 1830
+[        54] Test               U-Type BEQ Taken 1 passed!                 1860
+PC_IF = 10000000, instruction_IF = 7e2088e3, Time =                 1870
+PC_IF = 10000004, instruction_IF = 00000000, Time =                 1890
+PC_IF = 10000ff0, instruction_IF = 00418333, Time =                 1910
+PC_IF = 10000ff4, instruction_IF = 00000000, Time =                 1930
+[        55] Test               U-Type BEQ Taken 2 passed!                 1970
+PC_IF = 10000000, instruction_IF = 7e2088e3, Time =                 2010
+PC_IF = 10000004, instruction_IF = 004182b3, Time =                 2030
+PC_IF = 10000008, instruction_IF = 101210a3, Time =                 2050
+PC_IF = 1000000c, instruction_IF = 10129123, Time =                 2070
+[        56] Test             U-Type BEQ Not Taken passed!                 2090
+PC_IF = 10000010, instruction_IF = 101311a3, Time =                 2090
+PC_IF = 10000014, instruction_IF = 10138023, Time =                 2110
+[        57] Test               U-Type BNE Taken 1 passed!                 2120
+PC_IF = 10000000, instruction_IF = 7e2098e3, Time =                 2130
+PC_IF = 10000004, instruction_IF = 00000000, Time =                 2150
+PC_IF = 10000ff0, instruction_IF = 00418333, Time =                 2170
+PC_IF = 10000ff4, instruction_IF = 00000000, Time =                 2190
+[        58] Test               U-Type BNE Taken 2 passed!                 2230
+PC_IF = 10000000, instruction_IF = 7e2098e3, Time =                 2270
+PC_IF = 10000004, instruction_IF = 004182b3, Time =                 2290
+PC_IF = 10000008, instruction_IF = 101210a3, Time =                 2310
+PC_IF = 1000000c, instruction_IF = 10129123, Time =                 2330
+[        59] Test             U-Type BNE Not Taken passed!                 2350
+PC_IF = 10000010, instruction_IF = 101311a3, Time =                 2350
+PC_IF = 10000014, instruction_IF = 10138023, Time =                 2370
+[        60] Test               U-Type BLT Taken 1 passed!                 2380
+PC_IF = 10000000, instruction_IF = 7e20c8e3, Time =                 2390
+PC_IF = 10000004, instruction_IF = 00000000, Time =                 2410
+PC_IF = 10000ff0, instruction_IF = 00418333, Time =                 2430
+PC_IF = 10000ff4, instruction_IF = 00000000, Time =                 2450
+[        61] Test               U-Type BLT Taken 2 passed!                 2490
+PC_IF = 10000000, instruction_IF = 7e20c8e3, Time =                 2530
+PC_IF = 10000004, instruction_IF = 004182b3, Time =                 2550
+PC_IF = 10000008, instruction_IF = 101210a3, Time =                 2570
+PC_IF = 1000000c, instruction_IF = 10129123, Time =                 2590
+[        62] Test             U-Type BLT Not Taken passed!                 2610
+PC_IF = 10000010, instruction_IF = 101311a3, Time =                 2610
+PC_IF = 10000014, instruction_IF = 10138023, Time =                 2630
+[        63] Test               U-Type BGE Taken 1 passed!                 2640
+PC_IF = 10000000, instruction_IF = 7e20d8e3, Time =                 2650
+PC_IF = 10000004, instruction_IF = 00000000, Time =                 2670
+PC_IF = 10000ff0, instruction_IF = 00418333, Time =                 2690
+PC_IF = 10000ff4, instruction_IF = 00000000, Time =                 2710
+[        64] Test               U-Type BGE Taken 2 passed!                 2750
+PC_IF = 10000000, instruction_IF = 7e20d8e3, Time =                 2790
+PC_IF = 10000004, instruction_IF = 004182b3, Time =                 2810
+PC_IF = 10000008, instruction_IF = 101210a3, Time =                 2830
+PC_IF = 1000000c, instruction_IF = 10129123, Time =                 2850
+[        65] Test             U-Type BGE Not Taken passed!                 2870
+PC_IF = 10000010, instruction_IF = 101311a3, Time =                 2870
+PC_IF = 10000014, instruction_IF = 10138023, Time =                 2890
+[        66] Test              U-Type BLTU Taken 1 passed!                 2900
+PC_IF = 10000000, instruction_IF = 7e20e8e3, Time =                 2910
+PC_IF = 10000004, instruction_IF = 00000000, Time =                 2930
+PC_IF = 10000ff0, instruction_IF = 00418333, Time =                 2950
+PC_IF = 10000ff4, instruction_IF = 00000000, Time =                 2970
+[        67] Test              U-Type BLTU Taken 2 passed!                 3010
+PC_IF = 10000000, instruction_IF = 7e20e8e3, Time =                 3050
+PC_IF = 10000004, instruction_IF = 004182b3, Time =                 3070
+PC_IF = 10000008, instruction_IF = 101210a3, Time =                 3090
+PC_IF = 1000000c, instruction_IF = 10129123, Time =                 3110
+[        68] Test            U-Type BLTU Not Taken passed!                 3130
+PC_IF = 10000010, instruction_IF = 101311a3, Time =                 3130
+PC_IF = 10000014, instruction_IF = 10138023, Time =                 3150
+[        69] Test              U-Type BGEU Taken 1 passed!                 3160
+PC_IF = 10000000, instruction_IF = 7e20f8e3, Time =                 3170
+PC_IF = 10000004, instruction_IF = 00000000, Time =                 3190
+PC_IF = 10000ff0, instruction_IF = 00418333, Time =                 3210
+PC_IF = 10000ff4, instruction_IF = 00000000, Time =                 3230
+[        70] Test              U-Type BGEU Taken 2 passed!                 3270
+PC_IF = 10000000, instruction_IF = 7e20f8e3, Time =                 3310
+PC_IF = 10000004, instruction_IF = 004182b3, Time =                 3330
+PC_IF = 10000008, instruction_IF = 101210a3, Time =                 3350
+PC_IF = 1000000c, instruction_IF = 10129123, Time =                 3370
+[        71] Test            U-Type BGEU Not Taken passed!                 3390
+PC_IF = 10000010, instruction_IF = 101311a3, Time =                 3390
+PC_IF = 10000014, instruction_IF = 10138023, Time =                 3410
+PC_IF = 10000000, instruction_IF = 51e09073, Time =                 3430
+[        72] Test CSRRW passed!
+PC_IF = 10000004, instruction_IF = 51e85073, Time =                 3450
+[        73] Test CSRRWI passed!
+PC_IF = 10000008, instruction_IF = 101210a3, Time =                 3470
+
+
+
+Starting test hazards!
+
+
+
+PC_IF = 1000000c, instruction_IF = 10129123, Time =                 3490
+PC_IF = 10000000, instruction_IF = 001101b3, Time =                 3510
+PC_IF = 10000004, instruction_IF = 003202b3, Time =                 3530
+PC_IF = 10000008, instruction_IF = 101210a3, Time =                 3550
+PC_IF = 1000000c, instruction_IF = 10129123, Time =                 3570
+[        74] Test                         Hazard 1 passed!                 3590
+PC_IF = 10000010, instruction_IF = 101311a3, Time =                 3590
+PC_IF = 10000014, instruction_IF = 10138023, Time =                 3610
+PC_IF = 10000000, instruction_IF = 001101b3, Time =                 3630
+PC_IF = 10000004, instruction_IF = 004182b3, Time =                 3650
+PC_IF = 10000008, instruction_IF = 101210a3, Time =                 3670
+PC_IF = 1000000c, instruction_IF = 10129123, Time =                 3690
+[        75] Test                         Hazard 2 passed!                 3710
+PC_IF = 10000010, instruction_IF = 101311a3, Time =                 3710
+PC_IF = 10000014, instruction_IF = 10138023, Time =                 3730
+PC_IF = 10000000, instruction_IF = 001101b3, Time =                 3750
+PC_IF = 10000004, instruction_IF = 00428333, Time =                 3770
+PC_IF = 10000008, instruction_IF = 00338433, Time =                 3790
+PC_IF = 1000000c, instruction_IF = 10129123, Time =                 3810
+PC_IF = 10000010, instruction_IF = 101311a3, Time =                 3830
+[        76] Test                         Hazard 3 passed!                 3850
+PC_IF = 10000014, instruction_IF = 10138023, Time =                 3850
+PC_IF = 10000018, instruction_IF = 101400a3, Time =                 3870
+PC_IF = 10000000, instruction_IF = 001101b3, Time =                 3890
+PC_IF = 10000004, instruction_IF = 00428333, Time =                 3910
+PC_IF = 10000008, instruction_IF = 00718433, Time =                 3930
+PC_IF = 1000000c, instruction_IF = 10129123, Time =                 3950
+PC_IF = 10000010, instruction_IF = 101311a3, Time =                 3970
+[        77] Test                         Hazard 4 passed!                 3990
+PC_IF = 10000014, instruction_IF = 10138023, Time =                 3990
+PC_IF = 10000018, instruction_IF = 101400a3, Time =                 4010
+PC_IF = 10000000, instruction_IF = 001101b3, Time =                 4030
+PC_IF = 10000004, instruction_IF = 004182b3, Time =                 4050
+PC_IF = 10000008, instruction_IF = 005303b3, Time =                 4070
+PC_IF = 1000000c, instruction_IF = 10129123, Time =                 4090
+PC_IF = 10000010, instruction_IF = 101311a3, Time =                 4110
+[        78] Test                         Hazard 5 passed!                 4130
+PC_IF = 10000014, instruction_IF = 10138023, Time =                 4130
+PC_IF = 10000018, instruction_IF = 101400a3, Time =                 4150
+PC_IF = 10000000, instruction_IF = 001101b3, Time =                 4170
+PC_IF = 10000004, instruction_IF = 00322023, Time =                 4190
+PC_IF = 10000008, instruction_IF = 005303b3, Time =                 4210
+[        79] Test                         Hazard 6 passed!
+PC_IF = 1000000c, instruction_IF = 10129123, Time =                 4230
+PC_IF = 10000010, instruction_IF = 101311a3, Time =                 4250
+PC_IF = 10000000, instruction_IF = 0000a103, Time =                 4270
+PC_IF = 10000004, instruction_IF = 00218233, Time =                 4290
+PC_IF = 10000008, instruction_IF = 005303b3, Time =                 4310
+PC_IF = 1000000c, instruction_IF = 10129123, Time =                 4330
+[        80] Test                         Hazard 7 passed!                 4350
+PC_IF = 10000010, instruction_IF = 101311a3, Time =                 4350
+PC_IF = 10000014, instruction_IF = 10138023, Time =                 4370
+PC_IF = 10000000, instruction_IF = 0000a103, Time =                 4390
+PC_IF = 10000004, instruction_IF = 00222023, Time =                 4410
+PC_IF = 10000008, instruction_IF = 005303b3, Time =                 4430
+[        81] Test                         Hazard 8 passed!
+PC_IF = 1000000c, instruction_IF = 10129123, Time =                 4450
+PC_IF = 10000010, instruction_IF = 101311a3, Time =                 4470
+PC_IF = 10000000, instruction_IF = 0000a103, Time =                 4490
+PC_IF = 10000004, instruction_IF = 00412023, Time =                 4510
+PC_IF = 10000008, instruction_IF = 005303b3, Time =                 4530
+[        82] Test                         Hazard 9 passed!
+PC_IF = 1000000c, instruction_IF = 10129123, Time =                 4550
+PC_IF = 10000010, instruction_IF = 101311a3, Time =                 4570
+[        83] Test                      Hazard 10 1 passed!                 4580
+PC_IF = 10000000, instruction_IF = 00120333, Time =                 4590
+PC_IF = 10000004, instruction_IF = 002183b3, Time =                 4610
+PC_IF = 10000008, instruction_IF = 7e6388e3, Time =                 4630
+PC_IF = 1000000c, instruction_IF = 00000000, Time =                 4650
+PC_IF = 10000ff8, instruction_IF = 408485b3, Time =                 4670
+PC_IF = 10000ffc, instruction_IF = 00000000, Time =                 4690
+[        84] Test                      Hazard 10 2 passed!                 4730
+PC_IF = 10000000, instruction_IF = 004000ef, Time =                 4770
+PC_IF = 10000004, instruction_IF = 00000000, Time =                 4790
+PC_IF = 10000004, instruction_IF = 002081b3, Time =                 4810
+PC_IF = 10000008, instruction_IF = 7e6388e3, Time =                 4830
+PC_IF = 1000000c, instruction_IF = 00848533, Time =                 4850
+[        85] Test                        Hazard 11 passed!                 4870
+PC_IF = 10000010, instruction_IF = 101311a3, Time =                 4870
+PC_IF = 10000014, instruction_IF = 10138023, Time =                 4890
+PC_IF = 10000000, instruction_IF = 004200e7, Time =                 4910
+PC_IF = 10000004, instruction_IF = 00000000, Time =                 4930
+PC_IF = 10000004, instruction_IF = 002081b3, Time =                 4950
+PC_IF = 10000008, instruction_IF = 7e6388e3, Time =                 4970
+PC_IF = 1000000c, instruction_IF = 00848533, Time =                 4990
+[        86] Test                        Hazard 12 passed!                 5010
+PC_IF = 10000010, instruction_IF = 101311a3, Time =                 5010
+PC_IF = 10000014, instruction_IF = 10138023, Time =                 5030
+PC_IF = 10000018, instruction_IF = 101400a3, Time =                 5050
+PC_IF = 1000001c, instruction_IF = 10148123, Time =                 5070
+PC_IF = 10000020, instruction_IF = 101501a3, Time =                 5090
+All tests passed!
+../../tb/Riscv151_testbench.v:710: $finish called at 5110 (1ns)
+PC_IF = 10000024, instruction_IF = 00308503, Time =                 5110

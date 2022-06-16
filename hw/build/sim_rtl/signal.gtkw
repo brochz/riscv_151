@@ -1,0 +1,45 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Tue Oct 05 04:53:08 2021
+[*]
+[dumpfile] "C:\Users\zhang\OneDrive\Note\Courses\eecs151\riscv_prj\hw\build\sim_rtl\software_testbench.fst"
+[dumpfile_mtime] "Thu Sep 30 14:50:46 2021"
+[dumpfile_size] 78555965
+[savefile] "C:\Users\zhang\OneDrive\Note\Courses\eecs151\riscv_prj\hw\build\sim_rtl\signal.gtkw"
+[timestart] 755
+[size] 1920 1017
+[pos] 1677 -243
+*-7.000000 765010 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] software_testbench.
+[treeopen] software_testbench.SYSTEM.
+[treeopen] software_testbench.SYSTEM.xcel_unit.compute_unit.
+[sst_width] 288
+[signals_width] 313
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@23
+software_testbench.SYSTEM.CPU.PC[31:0]
+software_testbench.SYSTEM.CPU.PC_IF[31:0]
+software_testbench.SYSTEM.CPU.instruction_IF[31:0]
+@29
+software_testbench.SYSTEM.CPU.dma_done
+software_testbench.SYSTEM.CPU.xcel_done
+software_testbench.SYSTEM.CPU.xcel_idle
+software_testbench.SYSTEM.CPU.xcel_start
+software_testbench.SYSTEM.CPU.xcel_done
+software_testbench.SYSTEM.CPU.xcel_idle
+software_testbench.SYSTEM.xcel_unit.compute_start
+@25
+software_testbench.SYSTEM.xcel_unit.compute_unit.state_value[2:0]
+@23
+software_testbench.SYSTEM.xcel_unit.compute_unit.ic_cnt_value[31:0]
+software_testbench.SYSTEM.xcel_unit.compute_unit.ifm_depth[31:0]
+software_testbench.SYSTEM.xcel_unit.compute_unit.oc_cnt_value[31:0]
+software_testbench.SYSTEM.xcel_unit.compute_unit.ofm_depth[31:0]
+@29
+software_testbench.SYSTEM.xcel_unit.compute_unit.conv2D_done
+@23
+software_testbench.SYSTEM.xcel_unit.compute_unit.ofm_x_value[31:0]
+software_testbench.SYSTEM.xcel_unit.compute_unit.ofm_y_value[31:0]
+[pattern_trace] 1
+[pattern_trace] 0
